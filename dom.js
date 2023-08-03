@@ -41,6 +41,11 @@ function init() {
     element.addEventListener('click', function () {
         safeDelete();
     });
+
+    element = document.getElementById('delBySelectorBtn');
+    element.addEventListener('click', function () {
+        deleteBySelector();
+    });
 }
 
 function walk() {
@@ -191,6 +196,14 @@ function safeDelete() {
         document.body.removeChild(el2Del);
     else
         document.getElementById('safeDelOutput').innerText = "Removed as much as possible";
+}
+
+function deleteBySelector() {
+    let selector = document.getElementById("delBySelector").value;
+    let elements = document.querySelectorAll(selector);
+    for(let elt of elements) {
+        elt.parentNode.removeChild(elt);
+    }
 }
 
 window.addEventListener('DOMContentLoaded', init);
