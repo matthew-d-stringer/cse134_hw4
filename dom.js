@@ -220,7 +220,8 @@ function deleteBySelector() {
 
 function basicClone() {
     let p1 = document.getElementById('p1')
-    let output = document.getElementById('addOutput')
+    let output = document.getElementById('cloneOutput')
+    document.getElementsByTagName('template')[0].dataset.layer = 0;
 
     p1.dataset.layer++;
 
