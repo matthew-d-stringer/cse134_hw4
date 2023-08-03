@@ -27,6 +27,11 @@ function init() {
         add();
     });
 
+    element = document.getElementById('advAdd');
+    element.addEventListener('click', function () {
+        advancedAdd();
+    });
+
     element = document.getElementById('removeBtn');
     element.addEventListener('click', function () {
         remove();
@@ -137,6 +142,36 @@ function add() {
     // let oldP = document.getElementById('p1');
     // oldP.insertAdjacentHTML('afterend', '<p>This is a<em>test</em> of the DOM</p>');
     // clearly short hands are pretty easy!
+}
+
+function advancedAdd() {
+    let type = document.getElementById('elSelect').value;
+    let tag = document.getElementById('elTag').value;
+    let content = document.getElementById('elContent').value;
+
+    let dateStr = Date().toLocaleString();
+
+    let node;
+    switch(parseInt(type)) {
+        case 1: 
+            content = content ? content : `New Element ${dateStr}\n`;
+            node = document.createElement(tag);
+            node.appendChild(document.createTextNode(content));
+            break;
+        case 3:
+            content = content ? content : `New Text Node ${dateStr}\n`;
+            node = document.createTextNode(content);
+            break;
+        case 8: 
+            content = content ? content : `New Comment ${dateStr}\n`;
+            node = document.createComment(content);
+            break;
+        default:
+            node = document.createTextNode("Invalid Type");
+            break;
+    }
+
+    document.getElementById('addOutput').appendChild(node);
 }
 
 function remove() {
