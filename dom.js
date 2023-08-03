@@ -1,6 +1,8 @@
 /* dom.js */
 
 function init() {
+    document.getElementById('p1').dataset.layer = 1;
+
     let element = document.getElementById('walkBtn');
     element.addEventListener('click', function () {
         walk();
@@ -45,6 +47,11 @@ function init() {
     element = document.getElementById('delBySelectorBtn');
     element.addEventListener('click', function () {
         deleteBySelector();
+    });
+
+    element = document.getElementById('basicClone');
+    element.addEventListener('click', function () {
+        basicClone();
     });
 }
 
@@ -204,6 +211,18 @@ function deleteBySelector() {
     for(let elt of elements) {
         elt.parentNode.removeChild(elt);
     }
+}
+
+function basicClone() {
+    let p1 = document.getElementById('p1')
+    let output = document.getElementById('addOutput')
+
+    p1.dataset.layer++;
+
+    let newP = p1.cloneNode(true);
+    newP.id = `p${p1.dataset.layer}`;
+    
+    output.appendChild(newP);
 }
 
 window.addEventListener('DOMContentLoaded', init);
