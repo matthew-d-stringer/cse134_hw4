@@ -36,6 +36,11 @@ function init() {
     element.addEventListener('click', function () {
         remove();
     });
+
+    element = document.getElementById('safeDel');
+    element.addEventListener('click', function () {
+        safeDelete();
+    });
 }
 
 function walk() {
@@ -176,6 +181,16 @@ function advancedAdd() {
 
 function remove() {
   document.body.removeChild(document.body.lastChild);
+}
+
+function safeDelete() {
+    let el2Del = document.body.lastChild;
+    while(el2Del.previousSibling && el2Del.classList && el2Del.classList.contains("dontDel"))
+        el2Del = el2Del.previousSibling;
+    if(el2Del && (!el2Del.classList || (el2Del.classList && !el2Del.classList.contains("dontDel"))))
+        document.body.removeChild(el2Del);
+    else
+        document.getElementById('safeDelOutput').innerText = "Removed as much as possible";
 }
 
 window.addEventListener('DOMContentLoaded', init);

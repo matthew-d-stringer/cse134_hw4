@@ -80,9 +80,9 @@
 <h1>Vanilla DOM Manipulation</h1>
 <p id="p1">This is a <em>test</em> of the DOM</p>
 
-<section id="controls">
-<h2>Demos</h2>
-<form>
+<section id="controls" class="dontDel">
+<h2 class="dontDel">Demos</h2>
+<form class="dontDel">
     <fieldset>
         <legend>Traversal</legend>
         <label for="walkBtn">Basic Traversal</label>
@@ -108,7 +108,6 @@
         
         <label for="advWalkBtn">Advanced Walk</label>
         <input type="button" id="advWalkBtn" value="Advanced Walk">
-
     </fieldset>
 
     <fieldset>
@@ -172,6 +171,10 @@
           Q4b) Delete by selector
             add a text field and a button to the fieldset that allows you to type a CSS selector and then delete all the elements that match that selector.
         -->
+        <label for="safeDel"></label>
+        <input type="button" id="safeDel" value="Safe Delete">
+
+        <div id="safeDelOutput"></div>
     </fieldset>
 
     <fieldset>
