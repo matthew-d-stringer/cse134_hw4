@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{wasysym}
+\usepackage{tikz}
+\usepackage[
+    letterpaper,
+    margin=0.4in,
+    tmargin=0.7in,
+    bmargin=0.7in,
+    headsep=12pt,
+    footskip=12pt
+]{geometry}
+
+
+\theoremstyle{definition}
+\newtheorem*{ques}{Question}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\trace}{\operatorname{trace}}
+\newcommand{\kleene}{^\ast}
+\newcommand{\SUBSTRING}{\text{SUBSTRING}}
+\newcommand{\REP}{\text{REP}}
+
+\newcommand{\blank}{\scalebox{1.5}{\textvisiblespace}}
+\newcommand{\corrupted}{\text{\lightning}}
+
+% <Laplace Transform>
+\usepackage{mathrsfs}
+\newsavebox\foobox
+\newlength{\foodim}
+\newcommand{\slantbox}[2][0]{\mbox{%
+        \sbox{\foobox}{#2}%
+        \foodim=#1\wd\foobox
+        \hskip \wd\foobox
+        \hskip -0.5\foodim
+        \pdfsave
+        \pdfsetmatrix{1 0 #1 1}%
+        \llap{\usebox{\foobox}}%
+        \pdfrestore
+        \hskip 0.5\foodim
+}}
+\def\Laplace{\slantbox[-.45]{$\mathscr{L}$}}
+% </Laplace Transform>
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{CSE 134B}
+\lhead{
+  Matthew Stringer
+}
+\chead{HW 4}
+\cfoot{\thepage}
+
+\title{CSE 134B HW 4}
+\author{
+  Matthew Stringer
+}
+% \date{}
+
+\newcommand{\enc}[1]{\left\langle #1 \right\rangle}
+
+% \renewcommand{\ques}[1]{\clearpage\section*{Question #1.}}
+\renewcommand{\part}[1]{\section*{Part #1.}}
+\renewcommand{\ques}[1]{\subsection*{Question #1.}}
+
+\begin{document}
+    \maketitle
+    \subsection*{Website Link}
+    My site can be reached at \url{https://dashing-florentine-3c7dc9.netlify.app/}
+    \subsection*{Github Link}
+    My github can be found at \url{}.
+
+\end{document}

@@ -50,8 +50,11 @@ function showNode(el) {
     let nodeType = el.nodeType;
     let nodeName = el.nodeName;
     let nodeValue = el.nodeValue;
+    
+    let textArea = document.getElementById('output');
 
-    alert(`Node type: ${nodeType}\nNode name: ${nodeName}\nNode value: ${nodeValue}`);
+    textArea.textContent += `Node type: ${nodeType}\nNode name: ${nodeName}\nNode value: ${nodeValue}\n\n`;
+    textArea.style.height = textArea.scrollHeight + "px";
 }
 
 function modify() {
