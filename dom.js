@@ -17,6 +17,11 @@ function init() {
         modify();
     });
 
+    element = document.getElementById('advModifyBtn');
+    element.addEventListener('click', function () {
+        advancedModify();
+    });
+
     element = document.getElementById('addBtn');
     element.addEventListener('click', function () {
         add();
@@ -97,6 +102,15 @@ function modify() {
     el.dataset.cool = 'true';       // data-cool="true"
     el.dataset.coolFactor = '9000'; //data-cool-factor="9000"
 
+}
+
+function advancedModify() {
+    let h1Tag = document.getElementsByTagName('h1')[0];
+    h1Tag.innerText = "DOM Manipulation is Fun!";
+    h1Tag.style.color = `var(--darkcolor${Math.floor(6*Math.random())+1})`;
+
+    let pTag = document.getElementById('p1');
+    pTag.classList.add('shmancy');
 }
 
 function add() {

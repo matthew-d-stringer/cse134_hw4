@@ -52,6 +52,12 @@
             animation-direction: alternate;
         }
 
+        .shmancy {
+            text-align: center;
+            color: goldenrod;
+            background-color: blue;
+        }
+
         @keyframes backgroundColorPalette {
             0% {background: var(--color1);}
             25% {background: #60d394;}
@@ -74,11 +80,6 @@
         <label for="walkBtn">Basic Traversal</label>
         <input type="button" id="walkBtn" value="Walk">
 
-        <textarea id="walkOutput" cols="30" rows="10"></textarea>
-        
-        <label for="advWalkBtn">Advanced Walk</label>
-        <input type="button" id="advWalkBtn" value="Advanced Walk">
-
         <!--
             Q1a) Modify the simple walk button example to not use alerts but instead to print out 
             the node information on the page in a <textarea> within this fieldset. 
@@ -88,10 +89,18 @@
                 Walks the entire tree starting at the root and spits out the node structure into the <textarea> in the fieldset.  
                 You should indent each level by 4 spaces or you may use -- and other characters like | to make a little tree in the textarea tag.  
                 This is your choice.  
-                Advanced students may create elements on the page and make a sophisticated, but be forewarned if  you are casual about this you may create an infinite traversal.  If you do this more advanced approach you should consider a DocumentFragment to build up the tree and then add it to the DOM all at once.
+                Advanced students may create elements on the page and make a sophisticated, 
+                but be forewarned if  you are casual about this you may create an infinite traversal.  
+                If you do this more advanced approach you should consider a DocumentFragment to build up the tree and then add it to the DOM all at once.
 
                 Hint: This walk can be done in at least two ways if not more. Doing a brute force traversal may not be the most direct way of doing things.  Looking over more advanced DOM discussions at MDN may reveal other approaches.
         -->
+
+        <textarea id="walkOutput" cols="30" rows="10"></textarea>
+        
+        <label for="advWalkBtn">Advanced Walk</label>
+        <input type="button" id="advWalkBtn" value="Advanced Walk">
+
     </fieldset>
 
     <fieldset>
@@ -105,6 +114,10 @@
             2.  Changes the color of the h1 to a random dark color from one of the 5 CSS variables defined in the style tag above.  You can use the Math.random() function.
             3. Sets the class of the p tag to "shmancy" so that does a new CSS text effect of your own design. You can find something on the internet (please cite the URL of your inspiration) or make up your own.  You can use the classList property as you like, but make sure you toggle the animation class on and off every time you push the button.
         -->
+
+        <label for="modifyBtn">Advanced Modify</label>
+        <input type="button" id="advModifyBtn" value="Advanced Modify">
+
     </fieldset>
 
     <fieldset>
