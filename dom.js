@@ -53,6 +53,11 @@ function init() {
     element.addEventListener('click', function () {
         basicClone();
     });
+
+    element = document.getElementById('advClone');
+    element.addEventListener('click', function () {
+        advancedClone();
+    });
 }
 
 function walk() {
@@ -223,6 +228,24 @@ function basicClone() {
     newP.id = `p${p1.dataset.layer}`;
     
     output.appendChild(newP);
+}
+
+function advancedClone() {
+    let listOfLinks = [
+        "https://images.unsplash.com/photo-1690910550116-8e8b814cdd96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+        "https://images.unsplash.com/photo-1690440850413-d73785c4ac7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+        "https://images.unsplash.com/photo-1689686611078-a33b28e0a3a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+    ];
+    let template = document.getElementsByTagName('template')[0];
+    template.dataset.layer++;
+
+    let newCard = template.content.cloneNode(true);
+    newCard.id = `template${template.dataset.layer}`;
+
+    newCard.querySelector("h3").innerText += ` ${template.dataset.layer}`;
+    newCard.querySelector("img").src = listOfLinks[Math.floor(listOfLinks.length*Math.random())];
+
+    document.querySelector('#cloneOutput').appendChild(newCard);
 }
 
 window.addEventListener('DOMContentLoaded', init);

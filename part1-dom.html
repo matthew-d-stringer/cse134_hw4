@@ -45,11 +45,20 @@
             font-size : 3rem;
         }
         
-        #addOutput {
+        .output {
             background-color: rgb(222, 222, 222);
             border: 0.2em rgb(116, 116, 116) solid;
             border-radius: 1em;
             min-height: 2em;
+            padding: 0.25em;
+        }
+
+        .card {
+            display: inline-block;
+            margin: 0.5em;
+            max-width: 400px;
+            border-radius: 0.5em;
+            border: 0.2em var(--color1) solid;
             padding: 0.25em;
         }
 
@@ -155,7 +164,7 @@
         </fieldset>
 
         <strong>Output:</strong>
-        <div id="addOutput">
+        <div id="addOutput" class="output">
         </div>
     </fieldset>
 
@@ -192,6 +201,13 @@
 
         <label for="basicClone">Basic Clone</label>
         <input type="button" id="basicClone" value="Basic Clone">
+
+        <label for="advClone">Advanced Clone</label>
+        <input type="button" id="advClone" value="Advanced Clone">
+
+        Clone Ouptut
+        <div id="cloneOutput" class="output">
+        </div>
     </fieldset>
 
 </form>
@@ -201,6 +217,17 @@
 <h2>Look out below these will get deleted if you press the buttons above!</h2>
 <p>I am scared of being deleted!</p>
 <p>Me too. Oh noes, here comes the <code>removeChild()</code> method, it's going to delete us!</p>
+
+<template data-layer="0">
+    <div class="card">
+        <h3>Title</h3>
+        <img width="400" src="" alt="">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore mollitia distinctio earum ipsa dignissimos, assumenda
+            et aperiam quas aspernatur harum, facere ipsam, suscipit blanditiis enim rem accusantium commodi vero aliquam.
+        </p>
+    </div>
+</template>
 
 <!-- put all your new code in this dom.js file -->
 <script src="dom.js"></script>
