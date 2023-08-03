@@ -6,6 +6,12 @@ function init() {
         walk();
     });
 
+    element = document.getElementById('advWalkBtn');
+    element.addEventListener('click', function () {
+        document.getElementById('walkOutput').textContent = "";
+        advancedWalk(document.getElementsByTagName('html')[0], 0);
+    });
+
     element = document.getElementById('modifyBtn');
     element.addEventListener('click', function () {
         modify();
@@ -25,6 +31,8 @@ function init() {
 function walk() {
    let el;
 
+   document.getElementById('walkOutput').textContent = "";
+
    el = document.getElementById('p1');
    showNode(el);
 
@@ -42,8 +50,19 @@ function walk() {
 
    el = el.querySelector('section > *');
    showNode(el);
+}
 
-
+function advancedWalk(element, layer) {
+    let textArea = document.getElementById('walkOutput');
+    if(!element)
+        return;
+    for(i = 0; i < layer; i++) 
+        textArea.textContent += "  |"
+    
+    textArea.textContent += `--${element.nodeName}\n`;
+    textArea.style.height = textArea.scrollHeight + "px";
+    advancedWalk(element.firstChild, layer+1);
+    advancedWalk(element.nextSibling, layer);
 }
 
 function showNode(el) {
@@ -51,7 +70,7 @@ function showNode(el) {
     let nodeName = el.nodeName;
     let nodeValue = el.nodeValue;
     
-    let textArea = document.getElementById('output');
+    let textArea = document.getElementById('walkOutput');
 
     textArea.textContent += `Node type: ${nodeType}\nNode name: ${nodeName}\nNode value: ${nodeValue}\n\n`;
     textArea.style.height = textArea.scrollHeight + "px";
